@@ -23,6 +23,12 @@ defmodule DsStationWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/", DsStationWeb do
+    pipe_through :browser
+
+    live "/dashboard", DashboardLive, :home
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", DsStationWeb do
   #   pipe_through :api
